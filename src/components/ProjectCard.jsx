@@ -163,7 +163,7 @@ export default function ProjectCard({ project, index }) {
             {project.tags.map((t) => (
               <span
                 key={t}
-                className="rounded-md border border-sky-500/20 bg-sky-500/10 px-2.5 py-1 text-xs text-sky-300"
+                className="cursor-pointer rounded-md border border-sky-500/20 bg-sky-500/10 px-2.5 py-1 text-xs text-sky-300"
               >
                 {t}
               </span>

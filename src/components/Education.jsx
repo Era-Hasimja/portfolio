@@ -66,7 +66,7 @@ export default function Education() {
               {languages.map((l) => (
                 <div key={l.name} className="flex items-center justify-between">
                   <span className="font-semibold text-slate-100">{l.name}</span>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-400">
+                  <span className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-400">
                     {l.level}
                   </span>
                 </div>

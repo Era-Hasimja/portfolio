@@ -15,7 +15,7 @@ export default function About() {
             {softSkills.map((s) => (
               <span
                 key={s}
-                className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-slate-300"
+                className="cursor-pointer rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-300"
               >
                 {s}
               </span>
