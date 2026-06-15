@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Menu, Moon, Sun, X } from 'lucide-react'
+import { Download, Menu, X } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
 const links = [
@@ -10,16 +10,8 @@ const links = [
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Navbar({ theme, toggleTheme }) {
-  const [scrolled, setScrolled] = useState(false)
+export default function Navbar() {
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Lock body scroll while the mobile menu is open
   useEffect(() => {
@@ -29,81 +21,74 @@ export default function Navbar({ theme, toggleTheme }) {
     }
   }, [open])
 
-  const initials = profile.name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open
-          ? 'border-b border-slate-200/70 bg-white/80 backdrop-blur-lg dark:border-slate-800/70 dark:bg-slate-950/80'
-          : 'border-b border-transparent'
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#0a0f1a]/70 backdrop-blur-md">
+      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <a
           href="#top"
-          className="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight text-slate-900 dark:text-white"
+          className="font-display text-lg font-bold tracking-tight text-white"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 text-sm font-bold text-white">
-            {initials}
+          Era
+          <span className="bg-gradient-to-r from-sky-400 to-brand-400 bg-clip-text text-transparent">
+            .
           </span>
-          <span className="hidden sm:inline">{profile.name}</span>
         </a>
 
-        <div className="flex items-center gap-1">
-          <ul className="mr-2 hidden items-center gap-1 md:flex">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="grid h-10 w-10 place-items-center rounded-lg text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            className="grid h-10 w-10 place-items-center rounded-lg text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900 md:hidden dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+        <div className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="transition-colors hover:text-sky-400"
+            >
+              {l.label}
+            </a>
+          ))}
+          {profile.resumeUrl && (
+            <a
+              href={profile.resumeUrl}
+              download
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-sky-500 to-brand-500 px-4 py-2 font-medium text-white transition-opacity hover:opacity-90"
+            >
+              <Download size={15} />
+              Download CV
+            </a>
+          )}
         </div>
+
+        <button
+          type="button"
+          className="text-slate-200 md:hidden"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="border-t border-slate-200/70 bg-white px-6 py-4 md:hidden dark:border-slate-800/70 dark:bg-slate-950">
-          <ul className="flex flex-col gap-1">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <div className="flex flex-col gap-4 border-t border-white/5 bg-[#0a0f1a] px-6 py-4 text-sm md:hidden">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="text-slate-300 transition-colors hover:text-sky-400"
+            >
+              {l.label}
+            </a>
+          ))}
+          {profile.resumeUrl && (
+            <a
+              href={profile.resumeUrl}
+              download
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-sky-500 to-brand-500 px-4 py-2 text-center font-medium text-white"
+            >
+              <Download size={15} />
+              Download CV
+            </a>
+          )}
         </div>
       )}
     </header>

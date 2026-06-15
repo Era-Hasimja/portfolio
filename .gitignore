@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original full-size screenshots — optimized copies live in public/projects/
+images/
+
+# Stray duplicate of public/Era_Hasimja_CV.pdf (the public one is served)
+/Era_Hasimja_CV.pdf

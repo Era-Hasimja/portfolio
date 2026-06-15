@@ -7,22 +7,21 @@ export default function Skills() {
     <Section
       id="skills"
       eyebrow="Skills"
-      title="Tools I work with"
+      title="Tech stack & tools"
       subtitle="The technologies I use to design and ship products across web and mobile."
-      className="bg-slate-50/60 dark:bg-slate-900/30"
     >
       <div className="grid gap-6 sm:grid-cols-2">
         {skills.map((cat, i) => (
           <Reveal key={cat.group} delay={i * 0.06}>
-            <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-              <h3 className="text-base font-bold text-slate-900 dark:text-white">
+            <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="font-display text-lg font-semibold text-sky-300">
                 {cat.group}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {cat.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:border-brand-300 hover:text-brand-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-brand-500 dark:hover:text-brand-300"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-300 transition-colors hover:border-sky-400/40 hover:text-sky-300"
                   >
                     {item}
                   </span>

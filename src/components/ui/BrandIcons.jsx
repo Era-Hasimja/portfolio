@@ -16,6 +16,36 @@ export function GithubIcon({ size = 18, className = '' }) {
   )
 }
 
+export function AppleIcon({ size = 18, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17.05 12.04c-.03-2.6 2.12-3.84 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-1.72-.92-2.83-.9-1.46.02-2.8.85-3.55 2.16-1.51 2.62-.39 6.5 1.08 8.63.72 1.04 1.58 2.21 2.71 2.17 1.09-.04 1.5-.7 2.82-.7 1.31 0 1.69.7 2.83.68 1.17-.02 1.91-1.06 2.63-2.11.83-1.21 1.17-2.38 1.19-2.44-.03-.01-2.28-.88-2.31-3.49l-.04-.01zM14.47 4.5c.6-.73 1.01-1.74.9-2.75-.87.04-1.92.58-2.54 1.3-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.21z" />
+    </svg>
+  )
+}
+
+export function GooglePlayIcon({ size = 18, className = '' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M3.6 1.81c-.3.31-.48.8-.48 1.43v17.52c0 .63.18 1.12.49 1.43l.06.05 9.82-9.81v-.23L3.66 1.76l-.06.05zm13.2 13.08-3.27-3.27v-.24l3.28-3.27.07.04 3.87 2.2c1.11.63 1.11 1.66 0 2.29l-3.87 2.2-.08.05zm-.65.7L12.8 12.1 3.6 21.31c.37.39.97.43 1.65.05l11.1-6.31M16.81 8.4 5.25 1.84C4.57 1.45 3.97 1.5 3.6 1.89l9.2 9.2 4.01-4z" />
+    </svg>
+  )
+}
+
 export function LinkedinIcon({ size = 18, className = '' }) {
   return (
     <svg

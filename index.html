@@ -18,25 +18,10 @@
       content="Front-End Developer building real-world apps for iOS, Android and Web with React & React Native."
     />
 
-    <!-- Set theme before paint to avoid a flash of the wrong color scheme -->
-    <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem('theme')
-          var prefersDark = window.matchMedia(
-            '(prefers-color-scheme: dark)',
-          ).matches
-          if (stored === 'dark' || (!stored && prefersDark)) {
-            document.documentElement.classList.add('dark')
-          }
-        } catch (e) {}
-      })()
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
 

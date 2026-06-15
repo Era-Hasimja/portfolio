@@ -5,24 +5,25 @@ import Reveal from './Reveal'
  */
 export default function Section({ id, eyebrow, title, subtitle, children, className = '' }) {
   return (
-    <section id={id} className={`scroll-mt-20 py-20 sm:py-28 ${className}`}>
-      <div className="mx-auto max-w-6xl px-6">
+    <section
+      id={id}
+      className={`scroll-mt-20 border-t border-white/5 px-6 py-20 sm:py-24 ${className}`}
+    >
+      <div className="mx-auto max-w-5xl">
         {(eyebrow || title) && (
-          <Reveal className="mb-12 max-w-2xl">
+          <Reveal className="mb-10 max-w-2xl">
             {eyebrow && (
-              <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">
+              <p className="text-sm font-medium uppercase tracking-widest text-sky-400">
                 {eyebrow}
-              </span>
+              </p>
             )}
             {title && (
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight sm:text-4xl">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                {subtitle}
-              </p>
+              <p className="mt-4 text-lg text-slate-400">{subtitle}</p>
             )}
           </Reveal>
         )}
