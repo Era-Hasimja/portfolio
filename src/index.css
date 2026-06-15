@@ -38,6 +38,17 @@
   ::selection {
     @apply bg-sky-500/30 text-white;
   }
+
+  /* Tailwind v4 defaults buttons to the arrow cursor — restore the pointer
+     on everything clickable. */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  a[href],
+  label[for],
+  summary,
+  select {
+    cursor: pointer;
+  }
 }
 
 /* Display font helper (matches the reference's .font-display) */
